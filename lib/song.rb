@@ -8,7 +8,7 @@ class Song
   end
 
   def save
-    # self in the save method is our new instance
+   # self in the save method is our new instance
    # self.class is Song
    # self.class.all == Song.all
     self.class.all << self
@@ -24,7 +24,6 @@ class Song
     song = self.new
     song.name = name
     song
-      #  binding.pry
   end
 
   def self.create_by_name(name)
@@ -52,9 +51,6 @@ class Song
     @@all.sort_by{|song| song.name}
   end
 
-  # song = Song.new_from_filename("Taylor Swift - Blank Space.mp3")
-  # song.name #=> "Blank Space"
-  # song.artist_name #=> "Taylor Swift"
   def self.new_from_filename(filename)
     filename.slice! ".mp3"
     data = filename.split(" - ")
