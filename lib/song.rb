@@ -32,6 +32,7 @@ class Song
 
   def self.find_by_name(name)
     @@all.find{|song| song.name == name}
+    # self.all
     #.detect == .find
   end
 
@@ -68,6 +69,10 @@ class Song
 
   def self.destroy_all
     self.all.clear
+    # self.clear
+    # @@all.clear
+    # @@all = []
+
   end
 
 end
