@@ -6,6 +6,7 @@ class Song
 
 def self.all
     @@all
+    #@@artists
 end
 
 def save
@@ -25,27 +26,25 @@ def self.new_by_name(name)#  created a new song then given a name song.name "Bla
 end
 
 def self.create_by_name(name) #instanciates then provides a name
-    song = self.new
+    song = self.create #calls previous method .create
     song.name =name
-    @@all << song
+
+    #self.class.all << song
     song
 end
 
 def self.find_by_name(name)
-    @@all.find{|song| song.name == name}
+    self.all.find{|song| song.name == name}
 end
 
 def self.find_or_create_by_name(name)
-    song = self.find_by_name(name)
-    if song then
-        return song
-    else
-        self.create_by_name(name)
-    end
+
+    self.find_by_name(name) || self.create_by_name(name)
+
   end
 
 def self.alphabetical
-  sorted = @@all.sort_by{|song| song.name}
+  sorted = self.all.sort_by{|song| song.name}
   sorted
 end
 
